@@ -16,5 +16,5 @@
 
 16. Login: 
 '''ssh -i ~/.ssh/openshift-qe.pem root@<ip_address>'''
-
+**If you don't already request access to bitwarden [here](https://source.redhat.com/departments/it/it-information-security/wiki/intro_to_bitwarden_password_management_and_frequently_asked_questions) to be able to get the openshift-qe.pem file to put in an .ssh folder in your home directory)
 **NOTE**: these jump hosts will get deleted every 24 hours 
