@@ -1,0 +1,82 @@
+{
+  "apiserverProfile": {
+    "ip": "20.127.115.138",
+    "url": "https://api.pu3ntd2g.eastus.aroapp.io:6443/",
+    "visibility": "Public"
+  },
+  "clusterProfile": {
+    "domain": "pu3ntd2g",
+    "fipsValidatedModules": "Disabled",
+    "pullSecret": null,
+    "resourceGroupId": "/subscriptions/53b8f551-f0fc-4bea-8cba-6d1fefd54c8a/resourcegroups/aro-pu3ntd2g",
+    "version": "4.10.54"
+  },
+  "consoleProfile": {
+    "url": "https://console-openshift-console.apps.pu3ntd2g.eastus.aroapp.io/"
+  },
+  "id": "/subscriptions/53b8f551-f0fc-4bea-8cba-6d1fefd54c8a/resourceGroups/prubenda-aro3-rg/providers/Microsoft.RedHatOpenShift/openShiftClusters/prubenda-aro3",
+  "ingressProfiles": [
+    {
+      "ip": "20.231.61.195",
+      "name": "default",
+      "visibility": "Public"
+    }
+  ],
+  "location": "eastus",
+  "masterProfile": {
+    "diskEncryptionSetId": null,
+    "encryptionAtHost": "Disabled",
+    "subnetId": "/subscriptions/53b8f551-f0fc-4bea-8cba-6d1fefd54c8a/resourceGroups/prubenda-aro3-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet/subnets/master-subnet",
+    "vmSize": "Standard_D8s_v3"
+  },
+  "name": "prubenda-aro3",
+  "networkProfile": {
+    "podCidr": "10.128.0.0/14",
+    "serviceCidr": "172.30.0.0/16"
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "prubenda-aro3-rg",
+  "servicePrincipalProfile": {
+    "clientId": "7e7140ac-dbfd-416b-9f22-dc0edf1d15ea",
+    "clientSecret": null
+  },
+  "systemData": {
+    "createdAt": "2023-06-28T14:25:36.798698+00:00",
+    "createdBy": "prubenda@redhat.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2023-06-28T14:25:36.798698+00:00",
+    "lastModifiedBy": "prubenda@redhat.com",
+    "lastModifiedByType": "User"
+  },
+  "tags": null,
+  "type": "Microsoft.RedHatOpenShift/openShiftClusters",
+  "workerProfiles": [
+    {
+      "count": 1,
+      "diskEncryptionSetId": null,
+      "diskSizeGb": 128,
+      "encryptionAtHost": "Disabled",
+      "name": "prubenda-aro3-f2vn2-worker-eastus1",
+      "subnetId": "/subscriptions/53b8f551-f0fc-4bea-8cba-6d1fefd54c8a/resourceGroups/prubenda-aro3-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet/subnets/worker-subnet",
+      "vmSize": "Standard_D4s_v3"
+    },
+    {
+      "count": 1,
+      "diskEncryptionSetId": null,
+      "diskSizeGb": 128,
+      "encryptionAtHost": "Disabled",
+      "name": "prubenda-aro3-f2vn2-worker-eastus2",
+      "subnetId": "/subscriptions/53b8f551-f0fc-4bea-8cba-6d1fefd54c8a/resourceGroups/prubenda-aro3-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet/subnets/worker-subnet",
+      "vmSize": "Standard_D4s_v3"
+    },
+    {
+      "count": 1,
+      "diskEncryptionSetId": null,
+      "diskSizeGb": 128,
+      "encryptionAtHost": "Disabled",
+      "name": "prubenda-aro3-f2vn2-worker-eastus3",
+      "subnetId": "/subscriptions/53b8f551-f0fc-4bea-8cba-6d1fefd54c8a/resourceGroups/prubenda-aro3-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet/subnets/worker-subnet",
+      "vmSize": "Standard_D4s_v3"
+    }
+  ]
+}

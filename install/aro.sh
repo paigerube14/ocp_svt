@@ -8,7 +8,7 @@ az provider register -n Microsoft.Authorization --wait
 
 
 export LOCATION=eastus                 # the location of your cluster
-export CLUSTER=prubenda-aro2             # the name of your cluster
+export CLUSTER=prubenda-aro3            # the name of your cluster
 export RESOURCEGROUP=$CLUSTER-rg            # the name of the resource group where you want to create your cluster
 
 az group create --name $RESOURCEGROUP --location $LOCATION
@@ -28,39 +28,28 @@ az network vnet subnet create \
   --name worker-subnet \
   --address-prefixes 10.0.2.0/23
 
-export cluster_info=$CLUSTER_clusterinfo
-
 az aro create \
   --resource-group $RESOURCEGROUP \
   --name $CLUSTER \
   --vnet aro-vnet \
   --master-subnet master-subnet \
   --worker-subnet worker-subnet \
-  --pull-secret @"~/pull-secret.txt" >> $cluster_info
+  --pull-secret @"~/pull-secret.txt"
 
 
-az aro list-credentials \              
-  --name $CLUSTER \
-  --resource-group $RESOURCEGROUP
-
-
- az aro show \
-    --name $CLUSTER \
-    --resource-group $RESOURCEGROUP \
-    --query "consoleProfile.url" -o tsv
-
-
-export KUBEAPI=$(cat $cluster_info | jq -r '.apiserverProfile.url')
+export KUBEAPI=$(cat cluster_info | jq -r '.apiserverProfile.url')
 export KUBECRED=$(az aro list-credentials --name $CLUSTER --resource-group $RESOURCEGROUP)
 export KUBEUSER=$(echo "$KUBECRED" | jq -r '.kubeadminUsername')
 export KUBEPASS=$(echo "$KUBECRED" | jq -r '.kubeadminPassword')
 
 
-oc login "$KUBEAPI" --username="$KUBEUSER" --password="$KUBEPASS"
+echo "oc login $KUBEAPI --username=$KUBEUSER --password=$KUBEPASS"
+
+oc login $KUBEAPI --username=$KUBEUSER --password=$KUBEPASS
 
 echo "Generating kubeconfig in ~/.kube/$cluster_info/aro_kubeconfig"
 
-oc config view --raw > ~/.kube/$cluster_info/aro_kubeconfig
+oc config view --raw > ~/.kube/aro_kubeconfig
 
 # az aro create \
 #   --resource-group $RESOURCEGROUP \
